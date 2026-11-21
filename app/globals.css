@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #050505;
+  --surface: #101010;
+  --foreground: #ffffff;
+  --muted: #929292;
+  --primary: #ffffff;
+  --primary-foreground: #050505;
+  --accent: #ffffff;
+  --border: #232323;
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --radius: 2px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: 1px solid var(--foreground);
+  outline-offset: 3px;
+}
+
+/* Thin custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border: 3px solid var(--background);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-[11px] font-medium uppercase tracking-[0.3em] text-muted;
+  }
+
+  .display-xl {
+    @apply font-heading font-semibold leading-[0.95] tracking-tight text-foreground;
+    font-size: clamp(2.75rem, 8vw, 6.5rem);
+  }
+
+  .display-md {
+    @apply font-heading font-semibold leading-tight tracking-tight text-foreground;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  }
+
+  .display-sm {
+    @apply font-heading font-medium leading-snug tracking-tight text-foreground;
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+  }
+}
